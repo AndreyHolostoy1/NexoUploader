@@ -1,0 +1,77 @@
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #e5e5e5;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff0000;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ff0000 0, #fff 50%, #00d9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: 8s linear infinite shimmer;
+}
+
+.glass-card {
+    background: rgba(20, 20, 20, .7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, .2);
+}
+
+.glass-nav {
+    background: rgba(10, 10, 10, .85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.primary-btn {
+    background-color: #ff0000;
+    color: #fff;
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    background-color: #cc0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, .3);
+    transform: translateY(-2px);
+}
+
+.tariff-tab-active {
+    background-color: rgba(255, 0, 0, .15);
+    color: #ff0000;
+    border-color: #ff0000;
+    font-weight: 700;
+}

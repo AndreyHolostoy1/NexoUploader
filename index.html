@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="ru">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <title>Nexo Uploader | Автозалив видео на YouTube</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <script>
+   tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ["Outfit", "sans-serif"]
+                },
+                colors: {
+                    brand: {
+                        bg: "#0a0a0a",
+                        card: "#141414",
+                        primary: "#ff0000",
+                        accent: "#00d9ff",
+                        success: "#10b981",
+                        text: "#e5e5e5",
+                        muted: "#a1a1aa",
+                        border: "rgba(255, 255, 255, 0.08)"
+                    }
+                },
+                animation: {
+                    shimmer: "shimmer 4s linear infinite",
+                    float: "float 6s ease-in-out infinite",
+                    "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+                },
+                keyframes: {
+                    shimmer: {
+                        "0%": {
+                            backgroundPosition: "0 0"
+                        },
+                        "100%": {
+                            backgroundPosition: "-200% 0"
+                        }
+                    },
+                    float: {
+                        "0%, 100%": {
+                            transform: "translateY(0)"
+                        },
+                        "50%": {
+                            transform: "translateY(-10px)"
+                        }
+                    }
+                }
+            }
+        }
+    }
+  </script>
+ </head>
+ <body class="antialiased selection:bg-brand-primary selection:text-white">
+  <nav class="fixed glass-nav transition-all w-full z-50">
+   <div class="mx-auto px-4 max-w-7xl lg:px-8 sm:px-6">
+    <div class="flex items-center h-20 justify-between">
+     <div class="flex items-center gap-3 group cursor-pointer">
+      <div class="flex items-center justify-center bg-white/5 rounded-xl border border-white/10 duration-300 group-hover:border-brand-primary/50 h-10 relative transition w-10">
+       <i class="fa-brands fa-youtube text-brand-primary text-xl transition group-hover:scale-110"></i>
+      </div>
+      <span class="text-white font-bold text-xl tracking-tight">
+       Nexo
+       <span class="text-brand-primary">Uploader</span>
+      </span>
+     </div>
+     <div class="hidden lg:flex space-x-8">
+      <a class="text-sm text-brand-muted duration-300 font-medium hover:text-white transition" href="#about">О софте</a>
+      <a class="text-sm text-brand-muted duration-300 font-medium hover:text-white transition" href="#features">Возможности</a>
+      <a class="text-sm text-brand-muted duration-300 font-medium hover:text-white transition" href="#demo">Демо</a>
+      <a class="text-sm text-brand-muted duration-300 font-medium hover:text-white transition" href="#pricing">Тарифы</a>
+     </div>
+     <a class="flex items-center gap-2 transition font-bold rounded-xl bg-brand-primary hover:bg-red-600 px-6 py-2.5 shadow-[0_0_15px_rgba(255,0,0,0.2)] text-white text-sm" href="https://t.me/afftraffsupport" target="_blank">
+      <i class="fa-brands fa-telegram"></i>
+      <span class="hidden sm:inline">Связаться с нами</span>
+      <span class="sm:hidden">Telegram</span>
+     </a>
+    </div>
+   </div>
+  </nav>
+
+  <section class="relative md:pb-24 md:pt-40 overflow-hidden pb-20 pt-32 w-full">
+   <div class="absolute pointer-events-none bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] inset-0 z-0"></div>
+   <div class="absolute rounded-full -translate-y-1/2 -translate-x-1/2 -z-10 bg-brand-primary/10 left-1/2 top-1/2 blur-[80px] h-[300px] md:h-[600px] md:w-[600px] w-[300px]"></div>
+   <div class="relative z-10 mx-auto px-4 max-w-6xl text-center">
+    <div class="items-center gap-2 border py-2 bg-brand-primary/10 border-brand-primary/30 font-semibold inline-flex mb-8 px-4 rounded-full text-brand-primary text-xs tracking-wide uppercase">
+     <span class="flex h-2 relative w-2">
+      <span class="absolute rounded-full animate-ping bg-brand-primary h-full inline-flex opacity-75 w-full"></span>
+      <span class="relative h-2 w-2 bg-brand-primary inline-flex rounded-full"></span>
+     </span>
+     Полная автоматизация YouTube
+    </div>
+    <h1 class="font-extrabold leading-tight mb-8 md:text-7xl text-4xl tracking-tight">
+     Автозалив видео
+     <br/>
+     <span class="gradient-text">на YouTube 24/7</span>
+    </h1>
+    <p class="text-brand-muted font-light leading-relaxed max-w-3xl mb-10 md:text-xl mx-auto text-lg">
+     Nexo Uploader — мощный софт для полной автоматизации работы с YouTube. Массовый залив видео, управление каналами, планирование публикаций и продвинутая аналитика в одном инструменте.
+    </p>
+    <div class="flex justify-center flex-col gap-4 sm:flex-row">
+     <a class="font-bold text-center rounded-xl py-4 px-8 shadow-lg primary-btn text-lg" href="#pricing">
+      Начать сейчас
+     </a>
+     <a class="flex items-center gap-2 transition font-bold rounded-xl backdrop-blur-sm bg-white/[0.02] border border-white/10 hover:border-brand-primary/50 hover:text-brand-primary justify-center px-8 py-4 text-center text-lg text-white" href="#demo">
+      <i class="fa-solid fa-play text-xs"></i>
+      Смотреть демо
+     </a>
+    </div>
+    <div class="flex justify-center animate-pulse-slow mt-8">
+     <a class="flex items-center gap-3 group backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 px-5 py-2.5 rounded-full transition-all" href="#features">
+      <div class="h-2 w-2 rounded-full animate-pulse bg-green-500"></div>
+      <span class="text-white text-sm font-medium">Более 500+ активных пользователей</span>
+      <i class="fa-solid text-brand-primary fa-arrow-right group-hover:translate-x-1 text-xs transition-transform"></i>
+     </a>
+    </div>
+    <div class="mx-auto max-w-5xl rounded-2xl border-brand-primary/20 border-t gap-8 glass-card grid grid-cols-2 md:grid-cols-4 md:mt-20 mt-12 p-8">
+     <div class="text-center">
+      <div class="text-white font-bold text-2xl md:text-3xl mb-1">∞</div>
+      <div class="text-brand-muted text-xs uppercase tracking-widest">Видео в день</div>
+     </div>
+     <div class="border-l border-white/5 text-center">
+      <div class="font-bold text-2xl md:text-3xl mb-1 text-brand-primary">100+</div>
+      <div class="text-brand-muted text-xs uppercase tracking-widest">Каналов одновременно</div>
+     </div>
+     <div class="border-l border-white/5 text-center">
+      <div class="text-white font-bold text-2xl md:text-3xl mb-1">24/7</div>
+      <div class="text-brand-muted text-xs uppercase tracking-widest">Автоматизация</div>
+     </div>
+     <div class="border-l border-white/5 text-center">
+      <div class="font-bold text-2xl md:text-3xl mb-1 text-brand-accent">API</div>
+      <div class="text-brand-muted text-xs uppercase tracking-widest">YouTube Data v3</div>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="relative bg-[#0d0d0d] overflow-hidden border-white/5 border-y py-20" id="about">
+   <div class="mx-auto px-4 max-w-6xl">
+    <div class="text-center mb-12">
+     <h2 class="text-white font-bold md:text-4xl text-3xl mb-4">
+      Отзывы наших клиентов
+     </h2>
+     <p class="text-brand-muted font-light text-lg">Что говорят пользователи Nexo Uploader</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+     <div class="relative rounded-2xl group duration-300 border border-white/5 bg-[#141414] p-6 transition-all hover:border-brand-primary/30">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="flex items-center justify-center rounded-full bg-brand-primary/20 h-12 w-12">
+        <i class="fa-solid fa-user text-brand-primary"></i>
+       </div>
+       <div>
+        <div class="text-white font-bold">Александр</div>
+        <div class="text-brand-muted text-xs">Пользователь 6 месяцев</div>
+       </div>
+      </div>
+      <div class="flex gap-1 mb-3">
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+      </div>
+      <p class="text-sm text-brand-muted leading-relaxed mb-4">
+       "Софт реально экономит кучу времени. Раньше тратил по 4-5 часов на залив, теперь всё на автомате. Поддержка отвечает быстро, обновления выходят регулярно."
+      </p>
+      <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+       <i class="fa-solid fa-circle-dollar-to-slot text-green-500"></i>
+       <span class="text-green-400 font-bold text-sm">+$4,200</span>
+       <span class="text-brand-muted text-xs">за 6 месяцев</span>
+      </div>
+     </div>
+     <div class="relative rounded-2xl group duration-300 border border-white/5 bg-[#141414] p-6 transition-all hover:border-brand-accent/30">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="flex items-center justify-center rounded-full bg-brand-accent/20 h-12 w-12">
+        <i class="fa-solid fa-user text-brand-accent"></i>
+       </div>
+       <div>
+        <div class="text-white font-bold">Дмитрий</div>
+        <div class="text-brand-muted text-xs">Пользователь 3 месяца</div>
+       </div>
+      </div>
+      <div class="flex gap-1 mb-3">
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+      </div>
+      <p class="text-sm text-brand-muted leading-relaxed mb-4">
+       "Перепробовал много софтов для залива — этот лучший. Хуманизация на высоте, аккаунты живут дольше. Отстук в телегу очень удобен, всегда знаю что происходит."
+      </p>
+      <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+       <i class="fa-solid fa-circle-dollar-to-slot text-green-500"></i>
+       <span class="text-green-400 font-bold text-sm">+$2,800</span>
+       <span class="text-brand-muted text-xs">за 3 месяца</span>
+      </div>
+     </div>
+     <div class="relative rounded-2xl group duration-300 border border-white/5 bg-[#141414] p-6 transition-all hover:border-green-500/30">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="flex items-center justify-center rounded-full bg-green-500/20 h-12 w-12">
+        <i class="fa-solid fa-user text-green-500"></i>
+       </div>
+       <div>
+        <div class="text-white font-bold">Максим</div>
+        <div class="text-brand-muted text-xs">Пользователь 1 год</div>
+       </div>
+      </div>
+      <div class="flex gap-1 mb-3">
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+       <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
+      </div>
+      <p class="text-sm text-brand-muted leading-relaxed mb-4">
+       "Работаю с софтом уже год. За это время вышло столько обновлений — видно что разработчик не забивает. Чекер на API — огонь, статистика теперь всегда под рукой."
+      </p>
+      <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+       <i class="fa-solid fa-circle-dollar-to-slot text-green-500"></i>
+       <span class="text-green-400 font-bold text-sm">+$12,500</span>
+       <span class="text-brand-muted text-xs">за 1 год</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="py-24 bg-[#0a0a0a]" id="features">
+   <div class="mx-auto px-4 max-w-7xl">
+    <div class="mb-16 text-center">
+     <h2 class="text-white font-bold mb-4 md:text-4xl text-3xl">Актуальный функционал</h2>
+     <p class="text-brand-muted font-light text-lg">Всё необходимое для профессиональной работы с YouTube в одном месте.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 lg:grid-cols-3">
+     <div class="relative rounded-2xl group duration-300 transition bg-[#121212] border border-white/5 overflow-hidden p-8 hover:border-brand-primary/40">
+      <div class="flex items-center justify-center bg-white/5 rounded-xl h-12 mb-6 text-xl w-12 text-brand-primary">
+       <i class="fa-brands fa-telegram"></i>
+      </div>
+      <h3 class="text-white font-bold text-xl mb-3">Отстук в Telegram</h3>
+      <p class="text-sm text-brand-muted leading-relaxed font-light">
+       Мгновенные уведомления о всех действиях софта. Отстук ошибок, разлогинов со скриншотами страницы. Отправка всех ссылок после залива.
+      </p>
+     </div>
+     <div class="relative rounded-2xl group duration-300 transition bg-[#121212] border border-white/5 overflow-hidden p-8 hover:border-brand-accent/40">
+      <div class="flex items-center justify-center bg-white/5 rounded-xl h-12 mb-6 text-xl w-12 text-brand-accent">
+       <i class="fa-solid fa-key"></i>
+      </div>
+      <h3 class="text-white font-bold text-xl mb-3">Автоматическая авторизация</h3>
+      <p class="text-sm text-brand-muted leading-relaxed font-light">
+       Полностью автоматический вход в аккаунты. Поддержка AdsPower и Vision Browser. Улучшенная работа с браузерами.
+      </p>
+     </div>
+     <div class="relative rounded-2xl group duration-300 transition bg-[#121212] border border-white/5 overflow-hidden p-8 hover:border-green-500/40">
+      <div class="flex items-center justify-center bg-white/5 rounded-xl h-12 mb-6 text-xl w-12 text-green-400">
+       <i class="fa-solid fa-fire"></i>
+      </div>
+      <h3 class="text-white font-bold text-xl mb-3">Автоматический прогрев</h3>
+      <p class="text-sm text-brand-muted leading-relaxed font-light">
+       Интеллектуальный прогрев аккаунтов перед заливом. Минимальное время прогрева от 1 минуты. Улучшенный алгоритм хуманизации.
+      </p>
+     </div>
+     <div class="relative rounded-2xl group duration-300 transition bg-[#121212] border border-white/5 overflow-hidden p-8 hover:border-purple-500/40">
+      <div class="flex items-center justify-center bg-white/5 rounded-xl h-12 mb-6 text-xl w-12 text-purple-500">
+       <i class="fa-solid fa-cloud-arrow-up"></i>
+      </div>
+      <h3 class="text-white font-bold text-xl mb-3">Залив видео</h3>
+      <p class="text-sm text-brand-muted leading-relaxed font-light">
+       Массовый залив с установкой тегов. Вариативность загрузки (главная/профиль). Рандомизация порядка заполнения полей. До 30 потоков.
+      </p>
+     </div>
+     <div class="relative rounded-2xl group duration-300 transition bg-[#121212] border border-white/5 overflow-hidden p-8 hover:border-yellow-500/40">
+      <div class="flex items-center justify-center bg-white/5 rounded-xl h-12 mb-6 text-xl w-12 text-yellow-500">
+       <i class="fa-solid fa-user-pen"></i>
+      </div>
+      <h3 class="text-white font-bold text-xl mb-3">Заполнение профиля</h3>
+      <p class="text-sm text-brand-muted leading-relaxed font-light">
+       Автоматическая установка аватарки, шапки, описания и ссылок. Рандомизация ссылок и названий. Дополнительные проверки при заполнении.
+      </p>
+     </div>
+     <div class="relative rounded-2xl group duration-300 transition bg-[#121212] border border-white/5 overflow-hidden p-8 hover:border-brand-primary/40">
+      <div class="flex items-center justify-center bg-white/5 rounded-xl h-12 mb-6 text-xl w-12 text-brand-primary">
+       <i class="fa-solid fa-list-check"></i>
+      </div>
+      <h3 class="text-white font-bold text-xl mb-3">API Чекер</h3>
+      <p class="text-sm text-brand-muted leading-relaxed font-light">
+       Новый чекер на API. Сортировка по статусам. Кнопка "Обновить статусы" для профилей с 0 просмотров. Общая статистика после действий.
+      </p>
+     </div>
+    </div>
+    <div class="bg-[#121212] border border-white/5 mt-12 p-6 rounded-xl">
+     <h4 class="text-white font-bold mb-4 text-center text-lg">Последние обновления:</h4>
+     <div class="flex justify-center flex-wrap gap-x-8 gap-y-3 text-brand-muted text-sm">
+      <span class="flex items-center gap-2 transition hover:text-white">
+       <i class="fa-solid fa-check text-brand-primary"></i>
+       Улучшенная хуманизация
+      </span>
+      <span class="flex items-center gap-2 transition hover:text-white">
+       <i class="fa-solid fa-check text-brand-primary"></i>
+       Вариативность загрузки
+      </span>
+      <span class="flex items-center gap-2 transition hover:text-white">
+       <i class="fa-solid fa-check text-brand-primary"></i>
+       Скриншоты ошибок
+      </span>
+      <span class="flex items-center gap-2 transition hover:text-white">
+       <i class="fa-solid fa-check text-brand-primary"></i>
+       До 30 потоков AdsPower
+      </span>
+      <span class="flex items-center gap-2 transition hover:text-white">
+       <i class="fa-solid fa-check text-brand-primary"></i>
+       Общая статистика
+      </span>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="relative py-24 overflow-hidden bg-[#0a0a0a] border-t border-white/5" id="demo">
+   <div class="absolute rounded-full -translate-y-1/2 -translate-x-1/2 -z-10 bg-brand-primary/5 left-1/2 top-1/2 blur-[100px] h-[500px] w-[500px]"></div>
+   <div class="relative z-10 mx-auto px-4 max-w-5xl">
+    <div class="mb-12 text-center">
+     <h2 class="text-white font-bold mb-4 md:text-4xl text-3xl">Как это работает?</h2>
+     <p class="text-brand-muted font-light text-lg mx-auto max-w-2xl">
+      Посмотрите демонстрацию работы Nexo Uploader и убедитесь в простоте использования.
+     </p>
+    </div>
+    <div class="relative rounded-2xl group transition-all bg-gradient-to-b duration-500 from-white/10 hover:from-brand-primary/20 hover:to-brand-accent/20 p-1 to-white/5">
+     <div class="absolute transition group-hover:opacity-100 -inset-1 bg-brand-primary/20 blur duration-500 opacity-0 rounded-2xl"></div>
+     <div class="relative rounded-xl aspect-video bg-[#000] overflow-hidden shadow-2xl cursor-pointer" id="video-container" onclick="loadVideo()">
+      <img src="https://img.youtube.com/vi/hHYT3x8aobk/maxresdefault.jpg" alt="Nexo Uploader Demo" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition">
+       <div class="w-20 h-20 rounded-full bg-brand-primary flex items-center justify-center shadow-lg hover:scale-110 transition">
+        <i class="fa-solid fa-play text-white text-3xl ml-1"></i>
+       </div>
+      </div>
+     </div>
+    </div>
+    <script>
+     function loadVideo() {
+       document.getElementById('video-container').innerHTML = '<iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/hHYT3x8aobk?autoplay=1&rel=0" title="Nexo Uploader Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+     }
+    </script>
+    <div class="mt-8 text-center">
+     <a class="items-center gap-2 transition hover:text-white font-medium group inline-flex text-brand-primary text-sm tracking-widest uppercase" href="#pricing">
+      <span>Перейти к тарифам</span>
+      <i class="fa-solid fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
+     </a>
+    </div>
+   </div>
+  </section>
+
+  <section class="relative bg-[#0d0d0d] overflow-hidden py-24" id="pricing">
+   <div class="absolute rounded-full -translate-y-1/2 -translate-x-1/2 -z-10 bg-brand-primary/5 left-1/2 top-1/2 blur-[120px] h-[600px] hidden md:block w-[800px]"></div>
+   <div class="mx-auto px-4 max-w-7xl lg:px-8 sm:px-6 relative">
+    <h2 class="text-white font-bold text-4xl mb-6 md:text-5xl text-center">Тарифные планы</h2>
+    <p class="text-brand-muted font-light text-lg mx-auto max-w-2xl mb-8 text-center">
+     Выберите подходящий тариф и начните автоматизировать YouTube уже сегодня.
+     <br class="hidden md:block"/>
+     Чем больше период — тем выгоднее.
+    </p>
+    <div class="relative group/slider">
+     <div class="flex items-center justify-center gap-4 mt-3 md:hidden">
+      <button class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-brand-muted transition duration-200 active:bg-brand-primary active:text-white" onclick="scrollTariffDirection('prev')">
+       <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <span class="text-[10px] uppercase tracking-widest opacity-60 text-brand-muted">Выберите тариф</span>
+      <button class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-brand-muted transition duration-200 active:bg-brand-primary active:text-white" onclick="scrollTariffDirection('next')">
+       <i class="fa-solid fa-chevron-right"></i>
+      </button>
+     </div>
+     <div class="flex -mx-4 flex-nowrap gap-4 hide-scrollbar md:gap-6 md:grid md:grid-cols-4 md:mx-0 md:overflow-visible md:pb-0 md:pt-10 md:px-0 overflow-hidden pb-8 pt-10 px-4 scroll-smooth" id="pricing-container">
+      
+      <div class="flex flex-col relative bg-[#141414] p-6 rounded-2xl duration-300 glass-card group md:w-auto shrink-0 transition w-[85vw] hover:border-brand-primary/40" id="tariff-1">
+       <h3 class="text-white font-bold text-xl mb-2">1 Месяц</h3>
+       <p class="text-brand-muted text-xs uppercase tracking-wider font-medium mb-5 opacity-70">Быстрый старт</p>
+       <div class="text-white font-bold text-4xl mb-6">150$</div>
+       <ul class="text-sm text-brand-muted border-t border-white/5 flex-grow mb-8 pt-6 space-y-4">
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-accent"></i>
+         <strong class="text-white">Полный функционал</strong>
+        </li>
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-primary"></i>
+         Безлимит каналов
+        </li>
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-primary"></i>
+         Техническая поддержка
+        </li>
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-primary"></i>
+         Все обновления
+        </li>
+       </ul>
+       <a class="font-bold text-center rounded-xl transition w-full duration-300 text-sm border hover:text-white py-3.5 bg-brand-accent/5 border-brand-accent/30 hover:bg-brand-accent text-brand-accent" href="https://t.me/afftraffsupport" target="_blank">Выбрать</a>
+      </div>
+      
+      <div class="flex flex-col relative bg-[#141414] p-6 rounded-2xl duration-300 glass-card group md:w-auto shrink-0 transition w-[85vw] hover:border-brand-primary/60" id="tariff-3">
+       <div class="font-bold border py-1 absolute px-2 right-4 rounded text-xs top-4 border-brand-primary/30 text-brand-primary">-15%</div>
+       <h3 class="text-white font-bold text-xl mb-2">3 Месяца</h3>
+       <p class="text-brand-muted text-xs uppercase tracking-wider font-medium mb-5 opacity-70">Выгодный выбор</p>
+       <div class="mb-6">
+        <span class="text-sm text-gray-500 block line-through mb-1">450$</span>
+        <span class="text-white font-bold text-4xl">382$</span>
+       </div>
+       <ul class="text-sm text-brand-muted border-t border-white/5 flex-grow mb-8 pt-6 space-y-4">
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-accent"></i>
+         <strong class="text-white">Экономия 68$</strong>
+        </li>
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-accent"></i>
+         <strong class="text-white">Полный функционал</strong>
+        </li>
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-primary"></i>
+         Безлимит каналов
+        </li>
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-primary"></i>
+         Приоритетная поддержка
+        </li>
+       </ul>
+       <a class="font-bold text-center rounded-xl transition w-full duration-300 text-sm border hover:text-white py-3.5 bg-brand-primary/5 border-brand-primary/30 hover:bg-brand-primary text-brand-primary" href="https://t.me/afftraffsupport" target="_blank">Выбрать</a>
+      </div>
+      
+      <div class="relative group md:w-auto shrink-0 w-[85vw] md:-translate-y-4" id="tariff-6">
+       <div class="absolute transition blur duration-500 -inset-[1px] bg-gradient-to-b from-brand-primary group-hover:opacity-50 opacity-30 rounded-[20px] to-brand-accent"></div>
+       <div class="flex flex-col relative bg-[#141414] p-6 rounded-2xl border border-white/5 h-full">
+        <div class="font-bold shadow-lg text-white -translate-x-1/2 absolute bg-gradient-to-r from-brand-primary left-1/2 px-4 py-1 rounded-b-lg text-[10px] to-brand-accent top-0 tracking-wide uppercase">Хит продаж</div>
+        <div class="font-bold border bg-brand-accent/5 border-brand-accent/30 text-brand-accent absolute px-2 py-1 right-4 rounded text-xs top-4">-20%</div>
+        <h3 class="text-white font-bold text-xl mb-2 mt-4">6 Месяцев</h3>
+        <p class="text-xs uppercase tracking-wider opacity-70 font-medium mb-5 text-gray-400">Оптимальный выбор</p>
+        <div class="mb-6">
+         <span class="text-sm text-gray-500 block line-through mb-1">900$</span>
+         <span class="font-bold text-4xl text-brand-primary">720$</span>
+        </div>
+        <ul class="text-sm border-t border-white/5 flex-grow mb-8 pt-6 space-y-4 text-gray-300">
+         <li class="flex items-center gap-3">
+          <i class="fa-solid fa-check text-brand-accent"></i>
+          <strong class="text-white">Экономия 180$</strong>
+         </li>
+         <li class="flex items-center gap-3">
+          <i class="fa-solid fa-check text-brand-accent"></i>
+          <strong class="text-white">Полный функционал</strong>
+         </li>
+         <li class="flex items-center gap-3">
+          <i class="fa-solid fa-check text-brand-primary"></i>
+          Безлимит каналов
+         </li>
+         <li class="flex items-center gap-3">
+          <i class="fa-solid fa-check text-brand-primary"></i>
+          VIP поддержка
+         </li>
+        </ul>
+        <a class="font-bold text-center rounded-xl transition w-full duration-300 text-sm bg-gradient-to-r from-brand-primary hover:shadow-[0_0_20px_rgba(255,0,0,0.4)] py-4 text-white to-brand-accent" href="https://t.me/afftraffsupport" target="_blank">Выбрать</a>
+       </div>
+      </div>
+      
+      <div class="flex flex-col relative bg-[#141414] p-6 rounded-2xl duration-300 glass-card group md:w-auto shrink-0 transition w-[85vw] hover:border-brand-accent/50" id="tariff-12">
+       <div class="font-bold border bg-brand-accent/5 border-brand-accent/30 text-brand-accent absolute px-2 py-1 right-4 rounded text-xs top-4">-30%</div>
+       <h3 class="text-white font-bold text-xl mb-2">12 Месяцев</h3>
+       <p class="text-brand-muted text-xs uppercase tracking-wider font-medium mb-5 opacity-70">Максимальный профит</p>
+       <div class="mb-6">
+        <span class="text-sm text-gray-500 block line-through mb-1">1800$</span>
+        <span class="text-white font-bold text-4xl">1260$</span>
+       </div>
+       <ul class="text-sm text-brand-muted border-t border-white/5 flex-grow mb-8 pt-6 space-y-4">
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-accent"></i>
+         <strong class="text-white">Экономия 540$</strong>
+        </li>
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-accent"></i>
+         <strong class="text-white">Полный функционал</strong>
+        </li>
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-primary"></i>
+         Безлимит каналов
+        </li>
+        <li class="flex items-center gap-3">
+         <i class="fa-solid fa-check text-brand-primary"></i>
+         Личный менеджер
+        </li>
+       </ul>
+       <a class="font-bold text-center rounded-xl transition w-full duration-300 text-sm border hover:text-white py-3.5 bg-brand-accent/5 border-brand-accent/30 hover:bg-brand-accent text-brand-accent" href="https://t.me/afftraffsupport" target="_blank">Выбрать</a>
+      </div>
+      
+     </div>
+    </div>
+    
+    <div class="mx-auto max-w-5xl rounded-2xl bg-gradient-to-r from-yellow-700/50 md:mt-16 mt-8 p-[1px] shadow-2xl to-yellow-700/50 via-yellow-500/30">
+     <div class="relative rounded-2xl h-full bg-[#111111] md:p-10 overflow-hidden p-8">
+      <div class="absolute rounded-full -translate-y-1/2 blur-[100px] bg-yellow-500/5 h-96 hidden md:block pointer-events-none right-0 top-0 translate-x-1/2 w-96"></div>
+      <div class="flex items-center relative flex-col gap-8 md:flex-row z-10">
+       <div class="md:text-left flex-1 text-center">
+        <div class="font-bold border py-1 bg-yellow-500/10 border-yellow-500/20 inline-block mb-4 px-3 rounded-full text-[10px] text-yellow-500 tracking-wider uppercase">Личное наставничество</div>
+        <h3 class="text-white font-bold mb-4 md:text-3xl text-2xl">Обучение "До Результата"</h3>
+        <p class="text-sm text-brand-muted leading-relaxed mb-6 md:text-base">
+         Идеально для новичков. Мы поможем настроить софт оптимально под ваши запросы, созвонимся там, где вам удобно, передадим приватные схемы запуска и доведем до первой прибыли.
+         <span class="text-white block mt-2 opacity-80">В стоимость уже включена подписка на 1 месяц.</span>
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+         <span class="flex items-center justify-center gap-2 h-12 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-xs sm:text-sm text-white">
+          <i class="fa-solid fa-key text-yellow-500"></i>
+          Софт 1 мес
+         </span>
+         <span class="flex items-center justify-center gap-2 h-12 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-xs sm:text-sm text-white">
+          <i class="fa-solid fa-filter text-yellow-500"></i>
+          Воронки
+         </span>
+         <span class="flex items-center justify-center gap-2 h-12 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-xs sm:text-sm text-white">
+          <i class="fa-solid fa-layer-group text-yellow-500"></i>
+          3+ вертикали
+         </span>
+         <span class="flex items-center justify-center gap-2 h-12 rounded-lg bg-green-500/10 border border-green-500/20 text-xs sm:text-sm text-green-400">
+          <i class="fa-solid fa-shield-check text-green-500"></i>
+          Гарантия
+         </span>
+        </div>
+       </div>
+       <div class="flex flex-col md:w-auto gap-4 min-w-[220px] w-full">
+        <div class="md:text-right text-center">
+         <div class="text-white font-bold text-4xl">350$</div>
+         <p class="text-xs uppercase tracking-widest mt-1 text-gray-500">Единоразовый платеж</p>
+        </div>
+        <a class="flex items-center justify-center rounded-xl transition font-bold px-8 py-4 text-center bg-yellow-500 hover:bg-yellow-400 shadow-lg text-black w-full" href="https://t.me/afftraffsupport" target="_blank">Записаться</a>
+       </div>
+      </div>
+     </div>
+    </div>
+    
+    <div class="mt-16 border-t border-white/5 pt-10 text-center">
+     <p class="text-sm text-gray-500 mb-6 opacity-70 tracking-widest uppercase">Мы принимаем к оплате</p>
+     <div class="flex items-center justify-center flex-wrap duration-300 gap-6 hover:opacity-100 md:gap-10 opacity-90 transition">
+      <span class="flex items-center gap-2 font-bold text-sm text-white">
+       <i class="fa-brands fa-bitcoin text-lg text-yellow-500"></i>
+       CryptoBot
+      </span>
+      <span class="flex items-center gap-2 font-bold text-sm text-white">
+       <i class="fa-solid text-lg fa-circle-dollar-to-slot text-green-500"></i>
+       USDT TRC20
+      </span>
+      <span class="flex items-center gap-2 font-bold text-sm text-white">
+       <i class="fa-credit-card fa-regular text-blue-400 text-lg"></i>
+       Карты РФ
+      </span>
+      <span class="flex items-center gap-2 font-bold text-sm text-white">
+       <i class="fa-solid text-lg fa-globe text-purple-500"></i>
+       International Cards
+      </span>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <footer class="bg-black border-t border-white/10 py-12">
+   <div class="mx-auto px-4 max-w-7xl text-center">
+    <h2 class="text-white font-bold text-2xl mb-6">Остались вопросы?</h2>
+    <p class="text-brand-muted mb-8 mx-auto max-w-lg">
+     Напишите нам в Telegram для получения бесплатной консультации и демо-доступа.
+    </p>
+    <div class="flex justify-center flex-col gap-4 sm:flex-row">
+     <a class="items-center gap-2 transition rounded-xl border border-white/10 hover:border-brand-primary/50 hover:text-brand-primary justify-center text-white duration-300 hover:bg-white/5 inline-flex px-6 py-3" href="https://t.me/afftraffsupport" target="_blank">
+      <i class="fa-brands fa-telegram"></i>
+      @afftraffsupport
+     </a>
+     <a class="items-center gap-2 transition rounded-xl border border-white/10 hover:border-brand-primary/50 hover:text-brand-primary justify-center text-white duration-300 hover:bg-white/5 inline-flex px-6 py-3" href="https://t.me/afftraffsupport" target="_blank">
+      <i class="fa-solid fa-headset"></i>
+      Поддержка
+     </a>
+    </div>
+    <p class="text-sm mt-12 text-neutral-600 tracking-widest uppercase">
+     © 2026 Nexo Uploader. Все права защищены.
+    </p>
+   </div>
+  </footer>
+ </body>
+</html>
